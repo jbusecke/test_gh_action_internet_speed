@@ -1,0 +1,17 @@
+name: Test Internet Speed 🚄
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-speed:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: install with pip
+        run: pip install speedtest-cli
+      - name: run speedtest
+        run: speedtest-cli --secure
+      
